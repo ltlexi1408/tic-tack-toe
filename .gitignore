@@ -1,0 +1,13 @@
+# Ignore compiled binary files
+*.o
+*.obj
+a.out
+
+# Ignore build directories (if applicable)
+build/
+
+# Allow important files
+!MakeFile
+!README.md
+!*.cpp
+!*.h
