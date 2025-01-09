@@ -3,8 +3,8 @@
 *.obj
 a.out
 
-# Ignore build directories (if applicable)
-build/
+# Ignore files with no extensions in the root directory
+/*
 
 # Allow important files
 !MakeFile
