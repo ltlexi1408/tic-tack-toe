@@ -15,14 +15,13 @@ int main(){
         if(turn){
             std::cout << "X turn" << std::endl;
             UserTurn(board);
-            turn = !turn;
         }else{
             std::cout << "Y turn" << std::endl;
             opponent.Solve();
-            turn = !turn;
         }
         PrintBoard(board);
         fin = CheckWinner(board, turn);
+        turn = !turn;
     }
 
     if(fin == 1){
@@ -46,24 +45,25 @@ void PrintBoard(char (&board)[3][3]){
         }
         std::cout << std::endl;
     }
+    std::cout << std::endl;
 }
 
 void UserTurn(char (&board)[3][3]){
     int x = -1;
     int y = -1;
 
-    while(x < 0 || x > 2 || y < 0 || y > 2){
-        if(!(x >= 0 && x <= 2)){
+    while(x < 1 || x > 3 || y < 1 || y > 3){
+        if(!(x >= 1 && x <= 3)){
             std::cout << "x cordinate: ";
             std::cin >> x;
         }
-        if(!(y >= 0 && y <= 2)){
+        if(!(y >= 1 && y <= 3)){
             std::cout << "y cordinate: ";
             std::cin >> y;
         }
 
         std::cout << x << y << std::endl;
-        if(board[x][y] != 0){
+        if(board[x - 1][y - 1] != 0){
             x = -1;
             y = -1;
             std::cout << "empty" << std::endl;
@@ -72,11 +72,11 @@ void UserTurn(char (&board)[3][3]){
         }
     }
 
-    board[x][y] = 'X';
+    board[x - 1][y - 1] = 'X';
 }
 
 int CheckWinner(char (&board)[3][3], bool turn){
-    bool winner = 0;
+    int winner = 0;
     int playerWin = turn ? 1 : 2;
 
     // check for draw
