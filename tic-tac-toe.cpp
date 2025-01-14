@@ -27,7 +27,7 @@ int main(){
     if(fin == 1){
         std::cout << "X Wins" << std::endl;
     }else if(fin == 2){
-        std::cout << "Y Wins" << std::endl;
+        std::cout << "O Wins" << std::endl;
     }else{
         std::cout << "Draw" << std::endl;
     }
@@ -36,6 +36,8 @@ int main(){
 }
 
 void PrintBoard(char (&board)[3][3]){
+    std::cout << std::endl;
+
     for(int i = 0; i < 3; i++){
         for(int j = 0; j < 3; j++){
             if(board[i][j] == 0){
